@@ -4,7 +4,12 @@ class MainClass
 {
 	public static void Main(string[] args)
 	{
-		
+		Console.Write("Enter your name: ");
+		string name = Console.ReadLine();
+		Console.Write("Enter your age: ");
+		byte age = (byte)int.Parse(Console.ReadLine());
+		Console.WriteLine("Your name is {0} and age is {1} ", name, age);
+		Console.ReadKey();
 	}
 
 	public static void Task3_2()
@@ -16,7 +21,7 @@ class MainClass
 		Console.WriteLine(myName);
 		Console.WriteLine("\t Привет Мир");
 		Console.WriteLine("\t Мне 31 годик");
-		Console.WriteLine("\t My name is \n {0}", myName);
+        Console.WriteLine("\t My name is \n {0}", myName);
 		Console.WriteLine('\u0040');
 		Console.WriteLine('\u0023');
 		Console.ReadKey();
