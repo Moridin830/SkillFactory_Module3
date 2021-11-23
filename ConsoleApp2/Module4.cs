@@ -194,4 +194,69 @@ class Module4
 
 		Console.ReadKey();
 	}
+
+	public static void Task4_3_13()
+	{
+
+		var array = new int[] { 5, 6, 9, 1, 2, 3, 4 };
+
+		int Summ = 0;
+
+		foreach (int CurrentSymbol in array)
+		{
+			Summ = Summ + CurrentSymbol;
+		}
+
+		Console.WriteLine(Summ);
+
+		Console.Write("\n Press any key...");
+
+		Console.ReadKey();
+	}
+
+	public static void Task4_3_14()
+	{
+
+		int[][] array = new int[3][];
+
+		array[0] = new int[2] { 1, 2 };
+		array[1] = new int[3] { 1, 2, 3 };
+		array[2] = new int[5] { 1, 2, 3, 4, 5 };
+
+		foreach (int[] CurrentArray in array)
+		{
+			foreach (int CurrentSymbol in CurrentArray)
+            {
+				Console.Write(CurrentSymbol + " ");
+            }
+
+			Console.WriteLine();
+		}
+
+		Console.Write("\n Press any key...");
+
+		Console.ReadKey();
+	}
+
+	public static void Task4_3_15()
+	{
+
+		var array = new int[] { -5, 6, 9, -1, 2, 3, 4 };
+
+		int Counter = 0;
+
+		foreach (int CurrentSymbol in array)
+		{
+			if (CurrentSymbol > 0)
+			{
+				Counter++;
+			}
+		}
+
+		Console.WriteLine(Counter);
+
+		Console.Write("\n Press any key...");
+
+		Console.ReadKey();
+	}
 }
