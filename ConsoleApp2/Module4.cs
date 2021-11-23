@@ -1,12 +1,7 @@
 ﻿using System;
 
-class MainClass
+class Module4
 {
-	public static void Main(string[] args)
-	{
-		
-	}
-
 	public static void Task4_1_17()
 	{
 
@@ -113,5 +108,21 @@ class MainClass
 					break;
 			}
 		}
+	}
+
+	public static void Task4_3_7()
+	{
+		
+		Console.WriteLine("Enter your name:");
+		string InputName = Console.ReadLine();
+			
+		for (int CurrentIndex = (InputName.Length - 1); CurrentIndex >= 0; CurrentIndex--)
+        {
+			Console.Write(InputName[CurrentIndex]);
+        }
+
+		Console.Write("\n Press any key...");
+
+		Console.ReadKey();
 	}
 }
