@@ -260,22 +260,80 @@ class Module4
 		Console.ReadKey();
 	}
 
-	public static void Task4_3_15()
+	public static void Task4_3_16()
 	{
 
 		int[,] arr = { { -5, 6, 9, 1, 2, -3 }, { -8, 8, 1, 1, 2, -3 } };
 
 		int Counter = 0;
 
-		foreach (int CurrentSymbol in array)
+		for (int CurrentRow = 0; CurrentRow <= arr.GetUpperBound(0); CurrentRow++)
 		{
-			if (CurrentSymbol > 0)
-			{
-				Counter++;
+			for (int CurrentColumn = 0; CurrentColumn <= arr.GetUpperBound(1); CurrentColumn++)
+            {
+				if (arr[CurrentRow, CurrentColumn] > 0)
+				{
+					Counter++;
+				}
 			}
+			
 		}
 
 		Console.WriteLine(Counter);
+
+		Console.Write("\n Press any key...");
+
+		Console.ReadKey();
+	}
+
+	public static void Task4_3_17()
+	{
+
+		int[,] array = { { -5, 6, 9, 1, 2, -3 }, { -8, 8, 1, 1, 2, -3 } };
+
+		int temp = 0;
+
+		for (int CurrentRow = 0; CurrentRow <= array.GetUpperBound(0); CurrentRow++)
+		{
+			for (int CurrentIndex = 0; CurrentIndex <= array.GetUpperBound(1); CurrentIndex++)
+			{
+
+				int MaxValueIndex = CurrentIndex, MinValueIndex = CurrentIndex;
+				int MinValue = array[CurrentRow, CurrentIndex], MaxValue = array[CurrentRow, CurrentIndex];
+
+				for (int UpperIndex = (CurrentIndex + 1); UpperIndex <= array.GetUpperBound(1); UpperIndex++)
+				{
+					if (array[CurrentRow, UpperIndex] > MaxValue)
+					{
+						MaxValueIndex = UpperIndex;
+						MaxValue = array[CurrentRow, UpperIndex];
+					}
+
+					if (array[CurrentRow, UpperIndex] < MinValue)
+					{
+						MinValueIndex = UpperIndex;
+						MinValue = array[CurrentRow, UpperIndex];
+					}
+				}
+
+				temp = array[CurrentRow, CurrentIndex];
+				array[CurrentRow, CurrentIndex] = MinValue;
+				array[CurrentRow, MinValueIndex] = temp;
+				temp = array[CurrentRow, array.GetUpperBound(1)];
+				array[CurrentRow, array.GetUpperBound(1)] = MaxValue;
+				array[CurrentRow, MaxValueIndex] = temp;
+
+			}
+
+			for (int CurrentIndex = 0; CurrentIndex <= array.GetUpperBound(1); CurrentIndex++)
+			{
+				Console.Write(array[CurrentRow, CurrentIndex]);
+			}
+
+			Console.WriteLine();
+		}
+
+		
 
 		Console.Write("\n Press any key...");
 
