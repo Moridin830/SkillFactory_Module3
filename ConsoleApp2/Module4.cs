@@ -125,4 +125,26 @@ class Module4
 
 		Console.ReadKey();
 	}
+
+	public static void Task4_3_8()
+	{
+
+		int[,] array = { { 1, 2, 3 }, { 5, 6, 7 }, { 8, 9, 10 }, { 11, 12, 13 } };
+
+		for (int ColumnIndex = 0; ColumnIndex <= array.GetUpperBound(1); ColumnIndex++)
+        {
+			
+			for (int RowIndex = 0; RowIndex <= array.GetUpperBound(0); RowIndex++)
+            {
+				Console.Write(array[RowIndex, ColumnIndex] + " ");
+            }
+
+			Console.WriteLine();
+
+		}
+
+		Console.Write("\n Press any key...");
+
+		Console.ReadKey();
+	}
 }
