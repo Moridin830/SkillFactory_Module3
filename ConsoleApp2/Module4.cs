@@ -151,19 +151,44 @@ class Module4
 	public static void Task4_3_12()
 	{
 
-		int[,] array = { { 1, 2, 3 }, { 5, 6, 7 }, { 8, 9, 10 }, { 11, 12, 13 } };
+		var array = new int[] { 5, 6, 9, 1, 2, 3, 4 };
 
-		for (int ColumnIndex = 0; ColumnIndex <= array.GetUpperBound(1); ColumnIndex++)
+		int temp = 0;
+
+		for (int CurrentIndex = 0; CurrentIndex < array.Length; CurrentIndex++)
 		{
 
-			for (int RowIndex = 0; RowIndex <= array.GetUpperBound(0); RowIndex++)
-			{
-				Console.Write(array[RowIndex, ColumnIndex] + " ");
-			}
+			int MaxValueIndex = CurrentIndex, MinValueIndex = CurrentIndex;
+			int MinValue = array[CurrentIndex], MaxValue = array[CurrentIndex];
 
-			Console.WriteLine();
+			for (int UpperIndex = (CurrentIndex + 1); UpperIndex < array.Length; UpperIndex++)
+            {
+				if (array[UpperIndex] > MaxValue)
+				{
+					MaxValueIndex = UpperIndex;
+					MaxValue = array[UpperIndex];
+				}
+
+				if (array[UpperIndex] < MinValue)
+				{
+					MinValueIndex = UpperIndex;
+					MinValue = array[UpperIndex];
+				}
+			}
+			
+			temp = array[CurrentIndex];
+			array[CurrentIndex] = MinValue;
+			array[MinValueIndex] = temp;
+			temp = array[(array.Length - 1)];
+			array[(array.Length - 1)] = MaxValue;
+			array[MaxValueIndex] = temp;
 
 		}
+
+		foreach (int CurrentSymbol in array)
+        {
+			Console.Write(CurrentSymbol + " ");
+        }
 
 		Console.Write("\n Press any key...");
 
