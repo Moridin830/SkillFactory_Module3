@@ -339,4 +339,40 @@ class Module4
 
 		Console.ReadKey();
 	}
+
+	public static void Task4_4_2()
+	{
+
+		(string name, int age) anketa;
+		
+		Console.WriteLine("Enter your name:");
+		anketa.name = Console.ReadLine();
+
+		Console.WriteLine("Enter your age:");
+		anketa.age = Convert.ToInt32(Console.ReadLine());
+
+		Console.Write("\n Press any key...");
+
+		Console.ReadKey();
+	}
+
+	public static void Task4_4_3()
+	{
+
+		(string name, int age) anketa;
+
+		Console.WriteLine("Enter your name:");
+		anketa.name = Console.ReadLine();
+
+		Console.WriteLine("Enter your age:");
+		anketa.age = Convert.ToInt32(Console.ReadLine());
+
+		Console.WriteLine("Your age: {0}", anketa.age);
+		Console.WriteLine("Your name: {0}", anketa.name);
+		
+		Console.Write("\n Press any key...");
+
+		Console.ReadKey();
+	}
+
 }
