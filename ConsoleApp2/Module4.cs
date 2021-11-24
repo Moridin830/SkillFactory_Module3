@@ -2,6 +2,14 @@
 
 class Module4
 {
+
+	public struct FavoriteColors
+	{
+		public string First;
+		public string Second;
+		public string Third;
+	}
+	
 	public static void Task4_1_17()
 	{
 
@@ -370,6 +378,88 @@ class Module4
 		Console.WriteLine("Your age: {0}", anketa.age);
 		Console.WriteLine("Your name: {0}", anketa.name);
 		
+		Console.Write("\n Press any key...");
+
+		Console.ReadKey();
+	}
+
+	public static void Task4_4_4()
+	{
+
+		(string Name, string Type, double Age, int NameCount) Pet;
+
+		Console.WriteLine("Enter info of your pet.");
+		
+		Console.WriteLine("Enter name:");
+		Pet.Name = Console.ReadLine();
+
+		Console.WriteLine("Enter pet type:");
+		Pet.Type = Console.ReadLine();
+
+		Console.WriteLine("Enter age:");
+		Pet.Age = Convert.ToDouble(Console.ReadLine());
+
+		Console.WriteLine("Enter name length:");
+		Pet.NameCount = Convert.ToInt32(Console.ReadLine());
+		
+		Console.Write("\n Press any key...");
+
+		Console.ReadKey();
+	}
+
+	public static void Task4_5()
+	{
+
+		int UserQuantity = 3;
+
+		(string Name, string LastName, string Login, int LoginLength, bool HasPet, double Age, FavoriteColors FavColors) User;
+
+		Console.WriteLine("/--------------------------------------------/");
+		for (byte CurrentUser = 1; CurrentUser <= UserQuantity; CurrentUser++) 
+		{
+			
+			Console.WriteLine("Input info of user #{0}", CurrentUser);
+			Console.WriteLine("/--------------------------------------------/");
+
+			Console.WriteLine("Enter name:");
+			User.Name = Console.ReadLine();
+
+			Console.WriteLine("Enter last name:");
+			User.LastName = Console.ReadLine();
+
+			Console.WriteLine("Enter login:");
+			User.Login = Console.ReadLine();
+
+			User.LoginLength = User.Login.Length;
+
+			Console.WriteLine("Do you have any pets? Yes/No:");
+			string UserAnswer = Console.ReadLine();
+
+			if (UserAnswer == "Yes")
+			{
+				User.HasPet = true;
+			} else
+			{
+				User.HasPet = false;
+			}
+
+			Console.WriteLine("Enter your age:");
+			User.Age = Convert.ToDouble(Console.ReadLine());
+
+			Console.WriteLine("Enter your favorite colors.");
+			Console.WriteLine("Color 1");
+			User.FavColors.First = Console.ReadLine();
+
+			Console.WriteLine("Color 2");
+			User.FavColors.Second = Console.ReadLine();
+
+			Console.WriteLine("Color 3");
+			User.FavColors.Third = Console.ReadLine();
+
+			Console.WriteLine("/--------------------------------------------/");
+
+		}
+
 		Console.Write("\n Press any key...");
 
 		Console.ReadKey();
