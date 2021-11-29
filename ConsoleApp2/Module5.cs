@@ -46,7 +46,7 @@ class Module5
 		return color;
 	}
 
-	static int[] GetArrayFromConsole(int num = 5)
+	static int[] GetArrayFromConsole(ref int num = 5)
 	{
 		
 		var result = new int[num];
