@@ -2,6 +2,12 @@
 
 class Module5
 {
+	public struct FavoriteColors
+	{
+		public string First;
+		public string Second;
+		public string Third;
+	}
 
 	static string ShowColor(string username, int userage)
 	{
@@ -42,6 +48,7 @@ class Module5
 
 	static int[] GetArrayFromConsole(int num = 5)
 	{
+		
 		var result = new int[num];
 
 		for (int i = 0; i < result.Length; i++)
@@ -57,7 +64,8 @@ class Module5
     {
 		if (sort)
 		{
-			array = SortArray(array);
+			int[] SortedArrayAsc, SortedArrayDesc;
+			array = SortArray(array, out SortedArrayAsc, out SortedArrayDesc);
 		}
 
 		for (int CurrentElement = 0; CurrentElement < array.Length; CurrentElement++)
@@ -66,9 +74,14 @@ class Module5
         }
     }
 
-	public static int[] SortArray(int[] OurArray)
+	public static int[] SortArray(in int[] OurArray, out int[]SortedAsc, out int[] SortedDesc)
 	{
+		SortedAsc = SortArrayAsc(OurArray);
+		SortedDesc = SortArrayDesc(OurArray);
+	}
 
+	public static int[] SortArrayAsc(int[] OurArray)
+    {
 		int temp = 0;
 
 		for (int CurrentIndex = 0; CurrentIndex < OurArray.Length; CurrentIndex++)
@@ -104,11 +117,41 @@ class Module5
 		return OurArray;
 	}
 
-	public struct FavoriteColors
+	public static int[] SortArrayDesc(int[] OurArray)
 	{
-		public string First;
-		public string Second;
-		public string Third;
+		int temp = 0;
+
+		for (int CurrentIndex = 0; CurrentIndex < OurArray.Length; CurrentIndex++)
+		{
+
+			int MaxValueIndex = CurrentIndex, MinValueIndex = CurrentIndex;
+			int MinValue = OurArray[CurrentIndex], MaxValue = OurArray[CurrentIndex];
+
+			for (int UpperIndex = (CurrentIndex + 1); UpperIndex < OurArray.Length; UpperIndex++)
+			{
+				if (OurArray[UpperIndex] > MaxValue)
+				{
+					MaxValueIndex = UpperIndex;
+					MaxValue = OurArray[UpperIndex];
+				}
+
+				if (OurArray[UpperIndex] < MinValue)
+				{
+					MinValueIndex = UpperIndex;
+					MinValue = OurArray[UpperIndex];
+				}
+			}
+
+			temp = OurArray[CurrentIndex];
+			OurArray[CurrentIndex] = MaxValue;
+			OurArray[MaxValueIndex] = temp;
+			temp = OurArray[OurArray.Length - 1];
+			OurArray[OurArray.Length - 1] = MinValue;
+			OurArray[MinValueIndex] = temp;
+
+		}
+
+		return OurArray;
 	}
 
 	public static void Task5_1_1() 
@@ -207,5 +250,31 @@ class Module5
 		Console.ReadKey();
 	}
 
-	
+	static void Task5_5()
+	{
+		Console.WriteLine("Напишите что-то");
+		var str = Console.ReadLine();
+
+		Console.WriteLine("Укажите глубину эха");
+		var deep = int.Parse(Console.ReadLine());
+
+		Echo(str, deep);
+
+		Console.ReadKey();
+	}
+
+	static void Echo(string saidworld, int deep)
+	{
+		var modif = saidworld;
+		if (modif.Length > 2)
+		{
+			modif = modif.Remove(0, 2);
+		}
+		Console.WriteLine("..." + modif);
+
+		if (deep > 1)
+		{
+			Echo(modif, deep - 1);
+		}
+	}
 }
