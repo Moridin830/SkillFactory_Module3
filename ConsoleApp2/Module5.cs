@@ -3,9 +3,9 @@
 class Module5
 {
 
-	static string ShowColor(string username)
+	static string ShowColor(string username, int userage)
 	{
-		Console.WriteLine(username + ", напишите свой любимый цвет на английском с маленькой буквы");
+		Console.WriteLine("Мое имя: " + username + "\n" + "Мой возраст: " + userage + "\n" + "Напишите свой любимый цвет на английском с маленькой буквы");
 		string color = Console.ReadLine();
 
 		switch (color)
@@ -40,9 +40,9 @@ class Module5
 		return color;
 	}
 
-	static int[] GetArrayFromConsole()
+	static int[] GetArrayFromConsole(int num = 5)
 	{
-		var result = new int[5];
+		var result = new int[num];
 
 		for (int i = 0; i < result.Length; i++)
 		{
@@ -53,7 +53,20 @@ class Module5
 		return result;
 	}
 
-	public static void Task5_1_6(int[] OurArray)
+	public static void ShowArray(int[] array, bool sort = false)
+    {
+		if (sort)
+		{
+			array = SortArray(array);
+		}
+
+		for (int CurrentElement = 0; CurrentElement < array.Length; CurrentElement++)
+        {
+			Console.WriteLine(array[CurrentElement]);
+        }
+    }
+
+	public static int[] SortArray(int[] OurArray)
 	{
 
 		int temp = 0;
@@ -88,14 +101,7 @@ class Module5
 
 		}
 
-		foreach (int CurrentSymbol in OurArray)
-		{
-			Console.Write(CurrentSymbol + " ");
-		}
-
-		Console.Write("\n Press any key...");
-
-		Console.ReadKey();
+		return OurArray;
 	}
 
 	public struct FavoriteColors
