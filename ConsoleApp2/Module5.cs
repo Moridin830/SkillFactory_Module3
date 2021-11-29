@@ -46,7 +46,7 @@ class Module5
 		return color;
 	}
 
-	static int[] GetArrayFromConsole(ref int num = 5)
+	static int[] GetArrayFromConsole(int num = 5)
 	{
 		
 		var result = new int[num];
@@ -74,10 +74,12 @@ class Module5
         }
     }
 
-	public static SortArray(in int[] OurArray, out int[]SortedAsc, out int[] SortedDesc)
+	public static int[] SortArray(in int[] OurArray, out int[]SortedAsc, out int[] SortedDesc)
 	{
 		SortedAsc = SortArrayAsc(OurArray);
 		SortedDesc = SortArrayDesc(OurArray);
+
+		return SortedAsc;
 	}
 
 	public static int[] SortArrayAsc(int[] OurArray)
@@ -182,7 +184,7 @@ class Module5
 		string[] FavoriteColors = new string[3];
 		for(byte ColorNumber = 0; ColorNumber < FavoriteColors.Length; ColorNumber++)
         {
-			FavoriteColors[ColorNumber] = ShowColor("");
+			FavoriteColors[ColorNumber] = ShowColor("", 0);
         }
 
 		foreach(string CurrentColor in FavoriteColors)
@@ -233,13 +235,13 @@ class Module5
 
 			Console.WriteLine("Enter your favorite colors.");
 			Console.WriteLine("Color 1");
-			User.FavColors.First = ShowColor(User.Name);
+			User.FavColors.First = ShowColor(User.Name, Convert.ToInt32(User.Age));
 
 			Console.WriteLine("Color 2");
-			User.FavColors.Second = ShowColor(User.Name);
+			User.FavColors.Second = ShowColor(User.Name, Convert.ToInt32(User.Age));
 
 			Console.WriteLine("Color 3");
-			User.FavColors.Third = ShowColor(User.Name);
+			User.FavColors.Third = ShowColor(User.Name, Convert.ToInt32(User.Age));
 
 			Console.WriteLine("/--------------------------------------------/");
 
