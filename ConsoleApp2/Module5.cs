@@ -46,7 +46,7 @@ class Module5
 		return color;
 	}
 
-	static int[] GetArrayFromConsole(int num = 5)
+	static int[] GetArrayFromConsole(ref int num = 5)
 	{
 		
 		var result = new int[num];
@@ -74,7 +74,7 @@ class Module5
         }
     }
 
-	public static int[] SortArray(in int[] OurArray, out int[]SortedAsc, out int[] SortedDesc)
+	public static SortArray(in int[] OurArray, out int[]SortedAsc, out int[] SortedDesc)
 	{
 		SortedAsc = SortArrayAsc(OurArray);
 		SortedDesc = SortArrayDesc(OurArray);
