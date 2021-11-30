@@ -419,7 +419,7 @@ class Module4
 		{
 			
 			Console.WriteLine("Input info of user #{0}", CurrentUser);
-		Console.WriteLine("/--------------------------------------------/");
+			Console.WriteLine("/--------------------------------------------/");
 
 			Console.WriteLine("Enter name:");
 			User.Name = Console.ReadLine();

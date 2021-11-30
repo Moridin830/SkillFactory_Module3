@@ -267,6 +267,9 @@ class Module5
 
 	static void Echo(string saidworld, int deep)
 	{
+		Console.BackgroundColor = ConsoleColor.Green;
+		Console.ForegroundColor = ConsoleColor.Black;
+
 		var modif = saidworld;
 		if (modif.Length > 2)
 		{
